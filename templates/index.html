@@ -124,11 +124,6 @@
                             </div>
                             <div class="skill-info">
                                 <h3 class="skill-name">{{ skill }}</h3>
-                                <div class="skill-level">
-                                    <div class="level-bar">
-                                        <div class="level-fill" style="width: 85%"></div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         {% endfor %}
@@ -143,11 +138,6 @@
                             </div>
                             <div class="skill-info">
                                 <h3 class="skill-name">{{ skill }}</h3>
-                                <div class="skill-level">
-                                    <div class="level-bar">
-                                        <div class="level-fill" style="width: 80%"></div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         {% endfor %}
@@ -162,11 +152,6 @@
                             </div>
                             <div class="skill-info">
                                 <h3 class="skill-name">{{ skill }}</h3>
-                                <div class="skill-level">
-                                    <div class="level-bar">
-                                        <div class="level-fill" style="width: 90%"></div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         {% endfor %}
@@ -181,11 +166,6 @@
                             </div>
                             <div class="skill-info">
                                 <h3 class="skill-name">{{ skill }}</h3>
-                                <div class="skill-level">
-                                    <div class="level-bar">
-                                        <div class="level-fill" style="width: 95%"></div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         {% endfor %}
@@ -342,7 +322,7 @@
                         <div class="timeline-card">
                             <div class="card-header">
                                 <h3 class="card-title">{{ edu.degree }}</h3>
-                                <span class="card-duration">{% if edu.focus %}Focus: {{ edu.focus }}{% endif %}</span>
+                                <span class="card-duration">{{ edu.duration }}{% if edu.focus %} | Focus: {{ edu.focus }}{% endif %}</span>
                             </div>
                             <div class="card-body">
                                 <p class="card-company">{{ edu.institution }}</p>

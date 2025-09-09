@@ -95,12 +95,15 @@ education = [
     {
         "institution": "SRH University of Applied Sciences",
         "degree": "Master's in Computer Science",
+        "duration": "2023 – 2025",
         "focus": "Big Data and AI",
         "coursework": ["Machine Learning", "Big Data", "Cloud", "AI"]
     },
     {
         "institution": "Maharaja Institute of Technology",
         "degree": "Bachelor's in Electronics and Communication",
+        "duration": "2016 – 2020",
+        "focus": "",
         "coursework": ["Analog Electronics", "Digital Electronics", "Communication Systems"]
     }
 ]

@@ -162,150 +162,171 @@
                         <i class="fas fa-code"></i>
                         <span>Programming</span>
                     </button>
-                    <button class="skill-tab" data-target="frameworks">
-                        <i class="fas fa-cogs"></i>
-                        <span>Frameworks</span>
+                    <button class="skill-tab" data-target="tools">
+                        <i class="fas fa-tools"></i>
+                        <span>Tools & Frameworks</span>
                     </button>
                     <button class="skill-tab" data-target="ai-ml">
                         <i class="fas fa-brain"></i>
                         <span>AI/ML</span>
                     </button>
-                    <button class="skill-tab" data-target="tools">
-                        <i class="fas fa-tools"></i>
-                        <span>Tools</span>
+                    <button class="skill-tab" data-target="soft">
+                        <i class="fas fa-users"></i>
+                        <span>Soft Skills</span>
                     </button>
                 </div>
                 
-                <div class="skills-grid">
-                    <div class="skill-category active" data-category="programming">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fab fa-python"></i>
+                <div class="skills-panels">
+                    <div class="skill-panel active" id="programming-panel">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">Python</h3>
+                                </div>
                             </div>
-                            <h3>Python</h3>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%"></div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">R</h3>
+                                </div>
                             </div>
-                            <span class="skill-percentage">95%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-chart-line"></i>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">SWI-Prolog</h3>
+                                </div>
                             </div>
-                            <h3>R</h3>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <h3>SWI-Prolog</h3>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                            <span class="skill-percentage">75%</span>
                         </div>
                     </div>
-                    
-                    <div class="skill-category" data-category="frameworks">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-fire"></i>
+                    <div class="skill-panel" id="tools-panel">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">TensorFlow</h3>
+                                </div>
                             </div>
-                            <h3>TensorFlow</h3>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">PyTorch</h3>
+                                </div>
                             </div>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-bolt"></i>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">OpenCV</h3>
+                                </div>
                             </div>
-                            <h3>PyTorch</h3>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 88%"></div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">Docker</h3>
+                                </div>
                             </div>
-                            <span class="skill-percentage">88%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-eye"></i>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">Camunda</h3>
+                                </div>
                             </div>
-                            <h3>OpenCV</h3>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">YOLO</h3>
+                                </div>
                             </div>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category" data-category="ai-ml">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-robot"></i>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">MLflow</h3>
+                                </div>
                             </div>
-                            <h3>Computer Vision</h3>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 92%"></div>
-                            </div>
-                            <span class="skill-percentage">92%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-language"></i>
-                            </div>
-                            <h3>NLP</h3>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-network-wired"></i>
-                            </div>
-                            <h3>NeuroSymbolic AI</h3>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 88%"></div>
-                            </div>
-                            <span class="skill-percentage">88%</span>
                         </div>
                     </div>
-                    
-                    <div class="skill-category" data-category="tools">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fab fa-docker"></i>
+                    <div class="skill-panel" id="ai-ml-panel">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">Computer Vision</h3>
+                                </div>
                             </div>
-                            <h3>Docker</h3>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">NLP</h3>
+                                </div>
                             </div>
-                            <span class="skill-percentage">80%</span>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">NeuroSymbolic AI</h3>
+                                </div>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">Transfer Learning</h3>
+                                </div>
+                            </div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="skill-panel" id="soft-panel">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">Collaboration</h3>
+                                </div>
                             </div>
-                            <h3>MLflow</h3>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">Problem-Solving</h3>
+                                </div>
                             </div>
-                            <span class="skill-percentage">75%</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-search"></i>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">Continuous Learning</h3>
+                                </div>
                             </div>
-                            <h3>YOLO</h3>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                            <span class="skill-percentage">85%</span>
                         </div>
                     </div>
                 </div>
@@ -380,108 +401,92 @@
                 <h2 class="section-title">Experience & Education</h2>
                 <div class="section-divider"></div>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Research Assistant - AI/ML</h3>
-                        <h4>Technical University of Berlin</h4>
-                        <p class="timeline-date">2023 - Present</p>
-                        <ul class="timeline-details">
-                            <li>Leading research in computer vision and deep learning applications for medical imaging</li>
-                            <li>Developing novel approaches for real-time violence detection in video streams</li>
-                            <li>Published 3 research papers in top-tier AI conferences and journals</li>
-                            <li>Collaborating with interdisciplinary teams on NeuroSymbolic AI projects</li>
-                            <li>Mentoring undergraduate students in machine learning projects</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span class="tag">Research</span>
-                            <span class="tag">Deep Learning</span>
-                            <span class="tag">Computer Vision</span>
+            <div class="timeline-container">
+                <div class="timeline-tabs">
+                    <button class="timeline-tab active" data-target="work">Work Experience</button>
+                    <button class="timeline-tab" data-target="education">Education</button>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline active" id="work-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Software Engineer</h3>
+                                    <span class="card-duration">Sept 2020 – Dec 2022</span>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-company">Profinch Solutions Pvt Ltd, Bengaluru, Karnataka</p>
+                                    <ul class="card-responsibilities">
+                                        <li>Collaborated with 25+ team members to design scalable software solutions.</li>
+                                        <li>Maintained microservices using Docker, improving system reliability.</li>
+                                        <li>Implemented a workflow model using Camunda, achieving 30% faster BPMN process development.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Software Engineer Intern</h3>
+                                    <span class="card-duration">July 2020 – Sept 2020</span>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-company">Profinch Solutions Pvt Ltd, Bengaluru, Karnataka</p>
+                                    <ul class="card-responsibilities">
+                                        <li>Analyzed data to optimize system installations and integration with microservices.</li>
+                                        <li>Enhanced application functionality by integrating REST APIs and third-party tools.</li>
+                                        <li>Created an interactive learning platform for team skill development.</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Machine Learning Engineer Intern</h3>
-                        <h4>NSAI Technologies</h4>
-                        <p class="timeline-date">Summer 2022</p>
-                        <ul class="timeline-details">
-                            <li>Developed and deployed ML models for automated content moderation</li>
-                            <li>Implemented YOLO-based object detection systems with 95% accuracy</li>
-                            <li>Optimized model performance using TensorFlow and PyTorch</li>
-                            <li>Created data pipelines for large-scale image processing</li>
-                            <li>Collaborated with cross-functional teams to integrate AI solutions</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span class="tag">MLOps</span>
-                            <span class="tag">YOLO</span>
-                            <span class="tag">TensorFlow</span>
+                    
+                    <div class="timeline" id="education-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Master's in Computer Science</h3>
+                                    <span class="card-duration">2023 – 2025 | Focus: Big Data and AI</span>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-company">SRH University of Applied Sciences</p>
+                                    <div class="card-coursework">
+                                        <h4>Coursework:</h4>
+                                        <div class="coursework-tags">
+                                            <span class="coursework-tag">Machine Learning</span>
+                                            <span class="coursework-tag">Big Data</span>
+                                            <span class="coursework-tag">Cloud</span>
+                                            <span class="coursework-tag">AI</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Master of Science in Computer Science</h3>
-                        <h4>Technical University of Berlin</h4>
-                        <p class="timeline-date">2021 - 2023</p>
-                        <ul class="timeline-details">
-                            <li>Specialized in Artificial Intelligence and Machine Learning</li>
-                            <li>Research focus: Computer Vision and NeuroSymbolic AI</li>
-                            <li>Thesis: "Open Source Intelligence Techniques for Digital Deception Detection"</li>
-                            <li>GPA: 1.3 (German scale, equivalent to 3.7/4.0)</li>
-                            <li>Relevant Coursework: Deep Learning, Computer Vision, NLP, AI Ethics</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span class="tag">Master's Degree</span>
-                            <span class="tag">AI Specialization</span>
-                            <span class="tag">Research</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Bachelor of Technology in Computer Science</h3>
-                        <h4>VIT University, India</h4>
-                        <p class="timeline-date">2017 - 2021</p>
-                        <ul class="timeline-details">
-                            <li>Major in Computer Science and Engineering</li>
-                            <li>Concentration in Data Science and Machine Learning</li>
-                            <li>Final Year Project: "Medical Image Analysis using Deep Learning"</li>
-                            <li>CGPA: 8.7/10.0</li>
-                            <li>Active member of AI/ML club and organized tech workshops</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span class="tag">Bachelor's Degree</span>
-                            <span class="tag">Data Science</span>
-                            <span class="tag">Leadership</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Certifications & Achievements</h3>
-                        <h4>Various Platforms</h4>
-                        <p class="timeline-date">2019 - Present</p>
-                        <ul class="timeline-details">
-                            <li>TensorFlow Developer Certificate - Google (2022)</li>
-                            <li>Deep Learning Specialization - Coursera/Stanford (2021)</li>
-                            <li>Machine Learning Engineer Nanodegree - Udacity (2020)</li>
-                            <li>Winner - University AI Hackathon 2021</li>
-                            <li>Best Paper Award - ICML Workshop 2023</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span class="tag">Certifications</span>
-                            <span class="tag">Awards</span>
-                            <span class="tag">Recognition</span>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Bachelor's in Electronics and Communication</h3>
+                                    <span class="card-duration">2016 – 2020</span>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-company">Maharaja Institute of Technology</p>
+                                    <div class="card-coursework">
+                                        <h4>Coursework:</h4>
+                                        <div class="coursework-tags">
+                                            <span class="coursework-tag">Analog Electronics</span>
+                                            <span class="coursework-tag">Digital Electronics</span>
+                                            <span class="coursework-tag">Communication Systems</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
