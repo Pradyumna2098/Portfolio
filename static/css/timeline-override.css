@@ -62,6 +62,24 @@
     transform: none !important;
 }
 
+/* Specifically ensure education timeline works */
+#education-timeline {
+    display: none !important;
+}
+
+#education-timeline.active {
+    display: block !important;
+}
+
+/* Specifically ensure work timeline works */
+#work-timeline {
+    display: none !important;
+}
+
+#work-timeline.active {
+    display: block !important;
+}
+
 /* Force timeline items to be centered */
 .timeline-item {
     width: 100% !important;
@@ -112,7 +130,7 @@
     position: relative !important;
 }
 
-/* Force proper card header layout */
+/* Force proper card header layout for ALL timeline cards */
 .card-header {
     display: flex !important;
     justify-content: space-between !important;
@@ -138,6 +156,95 @@
     padding: 0.3rem 0.8rem !important;
     border-radius: 12px !important;
     white-space: nowrap !important;
+}
+
+/* Force proper styling for card body content */
+.card-body {
+    margin-top: 1rem !important;
+}
+
+.card-company {
+    color: var(--accent-secondary) !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 1.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.card-company::before {
+    content: '🏢' !important;
+    margin-right: 0.5rem !important;
+}
+
+/* Force proper styling for responsibilities and coursework */
+.card-responsibilities {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+}
+
+.card-responsibilities li {
+    color: var(--text-secondary) !important;
+    line-height: 1.6 !important;
+    padding-left: 1.5rem !important;
+    position: relative !important;
+    font-size: 0.95rem !important;
+}
+
+.card-responsibilities li::before {
+    content: '✦' !important;
+    position: absolute !important;
+    left: 0 !important;
+    color: var(--accent-primary) !important;
+    font-size: 0.8rem !important;
+    top: 0.1rem !important;
+}
+
+/* Force proper coursework styling for education cards */
+.card-coursework {
+    margin-top: 1.5rem !important;
+    padding-top: 1rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.card-coursework h4 {
+    color: var(--accent-tertiary) !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.card-coursework h4::before {
+    content: '📚' !important;
+    margin-right: 0.5rem !important;
+}
+
+.coursework-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.6rem !important;
+}
+
+.coursework-tag {
+    padding: 0.4rem 0.8rem !important;
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary)) !important;
+    color: white !important;
+    border-radius: 20px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+}
+
+.coursework-tag:hover {
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 4px 12px rgba(138, 43, 226, 0.4) !important;
 }
 
 /* Experience section cleanup */
