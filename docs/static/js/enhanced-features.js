@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initBackToTop();
     initSkillsTabs();
     initSmoothScroll();
-    initEmailCopy();
     initProjectMetrics();
     initA11yEnhancements();
 });
@@ -192,42 +191,6 @@ function initSmoothScroll() {
             }
         });
     });
-}
-
-// Email copy functionality
-function initEmailCopy() {
-    window.copyEmail = function() {
-        const email = 'pradyumnaswara@gmail.com';
-        navigator.clipboard.writeText(email).then(() => {
-            const btn = document.querySelector('.copy-email-btn');
-            const originalHtml = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check"></i>';
-            btn.style.color = '#28a745';
-            
-            setTimeout(() => {
-                btn.innerHTML = originalHtml;
-                btn.style.color = '';
-            }, 2000);
-        }).catch(() => {
-            // Fallback for older browsers
-            const textArea = document.createElement('textarea');
-            textArea.value = email;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            
-            const btn = document.querySelector('.copy-email-btn');
-            const originalHtml = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check"></i>';
-            btn.style.color = '#28a745';
-            
-            setTimeout(() => {
-                btn.innerHTML = originalHtml;
-                btn.style.color = '';
-            }, 2000);
-        });
-    };
 }
 
 // Project metrics (placeholder for future implementation)

@@ -33,40 +33,6 @@
     transform: translateY(0);
 }
 
-/* Email Copy Button */
-.email-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.email-link {
-    color: var(--accent-primary);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.email-link:hover {
-    color: var(--accent-secondary);
-}
-
-.copy-email-btn {
-    background: transparent;
-    border: 1px solid var(--accent-primary);
-    color: var(--accent-primary);
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    transition: all 0.3s ease;
-}
-
-.copy-email-btn:hover {
-    background: var(--accent-primary);
-    color: white;
-}
-
 /* Enhanced Project Cards */
 .project-card {
     transition: all 0.3s ease;
@@ -176,11 +142,76 @@ textarea:focus-visible {
 }
 
 /* Form Enhancements */
+.contact-content.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-content.centered .contact-form {
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-primary);
     box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.2);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* Mobile Responsive Enhancements */
@@ -193,14 +224,12 @@ textarea:focus-visible {
         font-size: 1rem;
     }
     
-    .email-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.25rem;
+    .contact-content.centered {
+        padding: 0 1rem;
     }
     
-    .copy-email-btn {
-        align-self: flex-start;
+    .contact-content.centered .contact-form {
+        max-width: 100%;
     }
 }
 
