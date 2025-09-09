@@ -1,6 +1,10 @@
 # Pradyumna's Futuristic Portfolio
 
+[![Deploy to GitHub Pages](https://github.com/Pradyumna2098/Portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/Pradyumna2098/Portfolio/actions/workflows/deploy.yml)
+
 A dynamic, AI-driven portfolio that showcases Pradyumna's skills, projects, and achievements using the Gemini Free Tier API. The portfolio is modular, easily editable, and visually futuristic, with seamless integration of AI features for interactivity and personalization.
+
+🌐 **[View Live Portfolio](https://pradyumna2098.github.io/Portfolio)**
 
 ## Features
 
