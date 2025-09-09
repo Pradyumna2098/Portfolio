@@ -1,0 +1,517 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="hero" class="section hero-section">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="glitch-text" data-text="Pradyumna S R">Pradyumna S R</h1>
+            <div class="typewriter">
+                <span id="typewriter-text"></span><span class="cursor">|</span>
+            </div>
+            <p class="hero-bio" id="hero-bio">{{ personal_info.profile_summary }}</p>
+            <div class="hero-cta">
+                <button class="cta-button primary" id="customize-bio">
+                    <span>Customize Bio</span>
+                    <i class="fas fa-robot"></i>
+                </button>
+                <a href="#contact" class="cta-button secondary">
+                    <span>Contact Me</span>
+                    <i class="fas fa-paper-plane"></i>
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/Paddiimg.jpg') }}" alt="Pradyumna S R" id="profile-image">
+                <div class="image-overlay"></div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <span>Scroll Down</span>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section about-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">About Me</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    As an engineer passionate about intelligent systems and AI solutions, I bridge research and real-world applications. My expertise spans machine learning, data processing, and AI theory, with a focus on developing technology that meaningfully impacts people's lives.
+                </p>
+                <p>
+                    I value interdisciplinary collaboration and continuous learning, always seeking to expand my knowledge and skills. My approach combines technical excellence with a human-centric perspective, ensuring that the systems I build are not only powerful but also accessible and beneficial.
+                </p>
+                <div class="about-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Location:</span>
+                        <span class="detail-value">{{ personal_info.location }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Email:</span>
+                        <span class="detail-value">{{ personal_info.email }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">LinkedIn:</span>
+                        <a href="https://{{ personal_info.linkedin }}" target="_blank" class="detail-value">{{ personal_info.linkedin }}</a>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">GitHub:</span>
+                        <a href="https://{{ personal_info.github }}" target="_blank" class="detail-value">{{ personal_info.github }}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-value">3+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">10+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">20+</div>
+                        <div class="stat-label">Technologies</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="section skills-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="skills-content">
+            <div class="skills-tabs">
+                <button class="skill-tab active" data-target="programming">
+                    <i class="fas fa-code"></i>
+                    <span>Programming</span>
+                </button>
+                <button class="skill-tab" data-target="tools">
+                    <i class="fas fa-tools"></i>
+                    <span>Tools & Frameworks</span>
+                </button>
+                <button class="skill-tab" data-target="ai-ml">
+                    <i class="fas fa-brain"></i>
+                    <span>AI/ML</span>
+                </button>
+                <button class="skill-tab" data-target="soft">
+                    <i class="fas fa-users"></i>
+                    <span>Soft Skills</span>
+                </button>
+            </div>
+            <div class="skills-panels">
+                <div class="skill-panel active" id="programming-panel">
+                    <div class="skills-grid">
+                        {% for skill in skills.programming_languages %}
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3 class="skill-name">{{ skill }}</h3>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="skill-panel" id="tools-panel">
+                    <div class="skills-grid">
+                        {% for skill in skills.tools_frameworks %}
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3 class="skill-name">{{ skill }}</h3>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="skill-panel" id="ai-ml-panel">
+                    <div class="skills-grid">
+                        {% for skill in skills.ai_ml_specializations %}
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3 class="skill-name">{{ skill }}</h3>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="skill-panel" id="soft-panel">
+                    <div class="skills-grid">
+                        {% for skill in skills.soft_skills %}
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3 class="skill-name">{{ skill }}</h3>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="skills-ai-recommendations">
+                <button class="cta-button tertiary" id="get-skill-recommendations">
+                    <span>Get AI Skill Recommendations</span>
+                    <i class="fas fa-lightbulb"></i>
+                </button>
+                <div class="recommendation-results" id="skill-recommendations"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="section projects-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">Project Gallery</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="projects-filter">
+            <button class="filter-button active" data-filter="all">All</button>
+            <button class="filter-button" data-filter="ai">AI</button>
+            <button class="filter-button" data-filter="computer-vision">Computer Vision</button>
+            <button class="filter-button" data-filter="neural-networks">Neural Networks</button>
+            <button class="filter-button" data-filter="neuro-symbolic">NeuroSymbolic</button>
+        </div>
+        <div class="projects-search">
+            <div class="search-container">
+                <input type="text" id="project-search" placeholder="Search projects...">
+                <button id="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="voice-search-button">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+        </div>
+        <div class="projects-grid">
+            {% for project in projects %}
+            <div class="project-card" data-tags="ai computer-vision neural-networks">
+                <div class="project-image">
+                    <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}">
+                    <div class="project-overlay">
+                        <a href="#" class="view-project" data-project-id="{{ loop.index0 }}">View Project</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">{{ project.title }}</h3>
+                    <p class="project-description">{{ project.description }}</p>
+                    <div class="project-tools">
+                        {% for tool in project.tools[:3] %}
+                        <span class="tool-tag">{{ tool }}</span>
+                        {% endfor %}
+                        {% if project.tools|length > 3 %}
+                        <span class="tool-tag more">+{{ project.tools|length - 3 }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="project-links">
+                        <a href="{{ project.github_link }}" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <button class="project-tag-generator" data-project-id="{{ loop.index0 }}">
+                            <i class="fas fa-tags"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Project Modal -->
+<div class="project-modal" id="project-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modal-title"></h2>
+            <button id="close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-image">
+                <img id="modal-image" src="" alt="">
+            </div>
+            <div class="modal-details">
+                <div class="modal-description">
+                    <h3>Overview</h3>
+                    <p id="modal-description"></p>
+                </div>
+                <div class="modal-tech-stack">
+                    <h3>Tech Stack</h3>
+                    <div id="modal-tech-stack" class="tech-stack-tags"></div>
+                </div>
+                <div class="modal-ai-tags">
+                    <h3>AI-Generated Tags</h3>
+                    <div id="modal-ai-tags" class="ai-tags"></div>
+                </div>
+                <div class="modal-links">
+                    <a id="modal-github" href="#" target="_blank" class="modal-link">
+                        <i class="fab fa-github"></i>
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Experience Section -->
+<section id="experience" class="section experience-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">Experience & Education</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-tabs">
+                <button class="timeline-tab active" data-target="work">Work Experience</button>
+                <button class="timeline-tab" data-target="education">Education</button>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline active" id="work-timeline">
+                    {% for exp in experiences %}
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="card-header">
+                                <h3 class="card-title">{{ exp.title }}</h3>
+                                <span class="card-duration">{{ exp.duration }}</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-company">{{ exp.company }}, {{ exp.location }}</p>
+                                <ul class="card-responsibilities">
+                                    {% for resp in exp.responsibilities %}
+                                    <li>{{ resp }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <div class="timeline" id="education-timeline">
+                    {% for edu in education %}
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="card-header">
+                                <h3 class="card-title">{{ edu.degree }}</h3>
+                                <span class="card-duration">{% if edu.focus %}Focus: {{ edu.focus }}{% endif %}</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-company">{{ edu.institution }}</p>
+                                <div class="card-coursework">
+                                    <h4>Coursework:</h4>
+                                    <div class="coursework-tags">
+                                        {% for course in edu.coursework %}
+                                        <span class="coursework-tag">{{ course }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Blog Section -->
+<section id="blog" class="section blog-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">Blog & Articles</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="blog-content">
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-info">
+                        <div class="blog-meta">
+                            <span class="blog-date">September 1, 2025</span>
+                            <span class="blog-category">Computer Vision</span>
+                        </div>
+                        <h3 class="blog-title">Advances in NeuroSymbolic AI for Visual Reasoning</h3>
+                        <p class="blog-excerpt">
+                            Exploring how symbolic reasoning enhances neural networks for complex visual tasks.
+                        </p>
+                        <button class="blog-summary-button" data-blog-id="1">
+                            <span>AI Summary</span>
+                            <i class="fas fa-robot"></i>
+                        </button>
+                        <div class="blog-summary" id="blog-summary-1"></div>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-info">
+                        <div class="blog-meta">
+                            <span class="blog-date">August 15, 2025</span>
+                            <span class="blog-category">MLOps</span>
+                        </div>
+                        <h3 class="blog-title">Streamlining ML Deployment with MLflow</h3>
+                        <p class="blog-excerpt">
+                            Best practices for tracking experiments and deploying models in production.
+                        </p>
+                        <button class="blog-summary-button" data-blog-id="2">
+                            <span>AI Summary</span>
+                            <i class="fas fa-robot"></i>
+                        </button>
+                        <div class="blog-summary" id="blog-summary-2"></div>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-info">
+                        <div class="blog-meta">
+                            <span class="blog-date">July 20, 2025</span>
+                            <span class="blog-category">Deep Learning</span>
+                        </div>
+                        <h3 class="blog-title">Transfer Learning for Medical Image Analysis</h3>
+                        <p class="blog-excerpt">
+                            How pretrained models can accelerate development in healthcare applications.
+                        </p>
+                        <button class="blog-summary-button" data-blog-id="3">
+                            <span>AI Summary</span>
+                            <i class="fas fa-robot"></i>
+                        </button>
+                        <div class="blog-summary" id="blog-summary-3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-more">
+                <button class="cta-button secondary">
+                    <span>View All Articles</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section contact-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>{{ personal_info.email }}</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Location</h3>
+                        <p>{{ personal_info.location }}</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>LinkedIn</h3>
+                        <p><a href="https://{{ personal_info.linkedin }}" target="_blank">{{ personal_info.linkedin }}</a></p>
+                    </div>
+                </div>
+                <div class="contact-resume">
+                    <button class="cta-button primary" id="generate-resume">
+                        <span>Generate Custom Resume</span>
+                        <i class="fas fa-file-alt"></i>
+                    </button>
+                    <div class="resume-options" id="resume-options">
+                        <button class="resume-option" data-focus="ai-ml">AI/ML Focus</button>
+                        <button class="resume-option" data-focus="software">Software Engineering</button>
+                        <button class="resume-option" data-focus="research">Research Oriented</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-container">
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

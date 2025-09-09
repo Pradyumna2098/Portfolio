@@ -1,0 +1,40 @@
+/* Simple placeholder CSS to ensure images work properly */
+.profile-placeholder,
+.project-placeholder,
+.blog-placeholder {
+    background: linear-gradient(45deg, #7b5cff, #00d9ff);
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-placeholder::after,
+.project-placeholder::after,
+.blog-placeholder::after {
+    content: "Image";
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Ensures images don't break layout when missing */
+img[src$=".jpg"],
+img[src$=".png"] {
+    min-height: 100px;
+    background: rgba(123, 92, 255, 0.1);
+    object-fit: cover;
+}
+
+/* Fix for missing project images */
+.project-image img {
+    min-height: 200px;
+}
+
+/* Fix for any broken background elements */
+#particles-js {
+    background-color: var(--bg-primary);
+}

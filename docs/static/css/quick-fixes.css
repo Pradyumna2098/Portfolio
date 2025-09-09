@@ -1,0 +1,45 @@
+/* Quick fixes for image placeholders */
+.particles-fallback {
+    background: linear-gradient(to bottom right, var(--bg-primary), var(--bg-secondary));
+}
+
+/* Missing image styles */
+.hero-image .image-container img[src$="profile-placeholder.svg"],
+.project-image img[src$="project-placeholder.svg"],
+.blog-image img[src$="blog-placeholder.svg"] {
+    object-fit: contain;
+    background-color: var(--accent-primary-transparent);
+    border-radius: 5px;
+}
+
+/* Override any problematic styles */
+.project-card, .blog-card {
+    overflow: visible;
+}
+
+/* Add loading animations */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+img.loading {
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Fix modal image */
+#modal-image[src$="project-placeholder.svg"] {
+    object-fit: contain;
+    background-color: var(--accent-primary-transparent);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Better title visibility on placeholders */
+[data-title]::before {
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    font-size: 1.2rem;
+    padding: 10px;
+    text-align: center;
+}

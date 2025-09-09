@@ -1,0 +1,83 @@
+/* Dark Theme (Default) */
+.theme-dark {
+    --bg-primary: #0a0a1a;
+    --bg-secondary: #0f0f20;
+    --bg-tertiary: #14142b;
+    --text-primary: #e6e6ff;
+    --text-secondary: #a9a9cc;
+    --accent-primary: #7b5cff;
+    --accent-secondary: #5628ee;
+    --accent-tertiary: #00d9ff;
+    --accent-quaternary: #ff2e63;
+    --card-bg: rgba(20, 20, 43, 0.7);
+    --card-border: rgba(123, 92, 255, 0.2);
+    --glass-bg: rgba(15, 15, 32, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --success: #00ffa3;
+    --warning: #ffaa00;
+    --error: #ff2e63;
+    --info: #00d9ff;
+}
+
+/* Light Theme */
+.theme-light {
+    --bg-primary: #f5f5ff;
+    --bg-secondary: #ebebf5;
+    --bg-tertiary: #dedeed;
+    --text-primary: #14142b;
+    --text-secondary: #4e4e6a;
+    --accent-primary: #7b5cff;
+    --accent-secondary: #5628ee;
+    --accent-tertiary: #00a3cc;
+    --accent-quaternary: #ff2e63;
+    --card-bg: rgba(235, 235, 245, 0.7);
+    --card-border: rgba(123, 92, 255, 0.2);
+    --glass-bg: rgba(245, 245, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --success: #00cc82;
+    --warning: #cc8800;
+    --error: #cc2450;
+    --info: #00a3cc;
+}
+
+/* Cyberpunk Theme */
+.theme-cyberpunk {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #141414;
+    --bg-tertiary: #1e1e1e;
+    --text-primary: #f0f0f0;
+    --text-secondary: #aaaaaa;
+    --accent-primary: #f700ff;
+    --accent-secondary: #b300cc;
+    --accent-tertiary: #00ffea;
+    --accent-quaternary: #ff0050;
+    --card-bg: rgba(30, 30, 30, 0.7);
+    --card-border: rgba(247, 0, 255, 0.2);
+    --glass-bg: rgba(20, 20, 20, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --success: #00ff66;
+    --warning: #ffcc00;
+    --error: #ff0050;
+    --info: #00ffea;
+}
+
+/* Midnight Theme */
+.theme-midnight {
+    --bg-primary: #05051a;
+    --bg-secondary: #0a0a2a;
+    --bg-tertiary: #0f0f3a;
+    --text-primary: #e6e6ff;
+    --text-secondary: #9999cc;
+    --accent-primary: #4169e1;
+    --accent-secondary: #324ab2;
+    --accent-tertiary: #00ccff;
+    --accent-quaternary: #ff3366;
+    --card-bg: rgba(15, 15, 58, 0.7);
+    --card-border: rgba(65, 105, 225, 0.2);
+    --glass-bg: rgba(10, 10, 42, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --success: #00ff99;
+    --warning: #ffcc00;
+    --error: #ff3366;
+    --info: #00ccff;
+}

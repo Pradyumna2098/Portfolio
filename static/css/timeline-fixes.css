@@ -1,0 +1,90 @@
+/* Timeline and Experience Section Fixes */
+
+/* Container setup */
+.timeline-container {
+    position: relative;
+    padding: 3rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Timeline vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    width: 2px;
+    background: var(--accent-primary);
+    opacity: 0.3;
+    top: 0;
+    height: calc(100% - 50px); /* Shorter line length */
+}
+
+/* Timeline items and markers */
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 60px; /* Space for marker */
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 30px;
+    transform: translateX(-50%);
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* Timeline cards */
+.timeline-card {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-left: 15px; /* Space from marker */
+    z-index: 1;
+}
+
+/* Card content */
+.card-header {
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+    color: var(--accent-tertiary);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Fix for experience section spacing */
+.experience-section {
+    margin-bottom: 6rem;
+    padding-bottom: 3rem;
+}
+
+/* Stop line at last item */
+.timeline-item:last-child .timeline-marker::before {
+    display: none;
+}
+
+/* Blog section separation */
+.blog-section {
+    clear: both;
+    padding-top: 4rem;
+}
