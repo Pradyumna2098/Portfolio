@@ -3,9 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pradyumna S R's portfolio - AI Engineer and Machine Learning Specialist">
-    <meta name="keywords" content="AI, Machine Learning, Computer Vision, Deep Learning, Portfolio">
-    <title>Pradyumna S R - Portfolio</title>
+    <meta name="description" content="Pradyumna S R - AI Engineer and Machine Learning Specialist specializing in computer vision, deep learning, and intelligent systems. Explore my portfolio of AI projects and research.">
+    <meta name="keywords" content="AI Engineer, Machine Learning, Computer Vision, Deep Learning, TensorFlow, PyTorch, Portfolio, Pradyumna">
+    <meta name="author" content="Pradyumna S R">
+    <meta property="og:title" content="Pradyumna S R - AI Engineer & ML Specialist">
+    <meta property="og:description" content="Portfolio showcasing AI projects, machine learning expertise, and computer vision research.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pradyumna2098.github.io/Portfolio/">
+    <meta property="og:image" content="https://pradyumna2098.github.io/Portfolio/static/images/Paddiimg.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pradyumna S R - AI Engineer & ML Specialist">
+    <meta name="twitter:description" content="Portfolio showcasing AI projects, machine learning expertise, and computer vision research.">
+    <title>Pradyumna S R - AI Engineer & ML Specialist Portfolio</title>
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pradyumna S R",
+      "jobTitle": "AI Engineer and Machine Learning Specialist",
+      "description": "An engineer passionate about intelligent systems and AI solutions, with a focus on bridging research and real-world applications.",
+      "url": "https://pradyumna2098.github.io/Portfolio/",
+      "email": "pradyumnaswara@gmail.com",
+      "image": "https://pradyumna2098.github.io/Portfolio/static/images/Paddiimg.jpg",
+      "sameAs": [
+        "https://linkedin.com/in/pradyumnasr",
+        "https://github.com/Pradyumna2098"
+      ],
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Computer Vision",
+        "Deep Learning",
+        "TensorFlow",
+        "PyTorch",
+        "Python"
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "SRH University of Applied Sciences",
+          "address": "Germany"
+        },
+        {
+          "@type": "EducationalOrganization", 
+          "name": "Maharaja Institute of Technology",
+          "address": "India"
+        }
+      ]
+    }
+    </script>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +70,7 @@
     <link rel="stylesheet" href="static/css/theme-dark.css">
     <link rel="stylesheet" href="static/css/timeline-fixes.css">
     <link rel="stylesheet" href="static/css/timeline-override.css">
+    <link rel="stylesheet" href="static/css/enhanced-features.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- GSAP for animations -->
@@ -52,7 +101,7 @@
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
             <div class="theme-toggle">
-                <button id="theme-btn" class="theme-btn">
+                <button id="theme-btn" class="theme-btn" aria-label="Toggle dark/light theme">
                     <i class="fas fa-moon"></i>
                 </button>
             </div>
@@ -73,10 +122,10 @@
                 </div>
                 <p class="hero-bio" id="hero-bio">An engineer passionate about intelligent systems and AI solutions, with a focus on bridging research and real-world applications. Strong background in machine learning, data processing, and AI theory. Values interdisciplinary collaboration, continuous learning, and human-centric technology.</p>
                 <div class="hero-cta">
-                    <button class="cta-button primary" id="customize-bio">
-                        <span>Customize Bio</span>
-                        <i class="fas fa-robot"></i>
-                    </button>
+                    <a href="#about" class="cta-button primary">
+                        <span>About Me</span>
+                        <i class="fas fa-user"></i>
+                    </a>
                     <a href="#contact" class="cta-button secondary">
                         <span>Contact Me</span>
                         <i class="fas fa-paper-plane"></i>
@@ -85,7 +134,7 @@
             </div>
             <div class="hero-image">
                 <div class="image-container">
-                    <img src="static/images/Paddiimg.jpg" alt="Pradyumna S R" id="profile-image">
+                    <img src="static/images/Paddiimg.jpg" alt="Pradyumna S R - AI Engineer and Machine Learning Specialist" id="profile-image">
                     <div class="image-overlay"></div>
                 </div>
             </div>
@@ -343,9 +392,13 @@
                 <div class="section-divider"></div>
             </div>
             <div class="projects-grid">
-                <div class="project-card">
+                <a href="https://github.com/Pradyumna2098/Voilence-Detection" target="_blank" class="project-card" rel="noopener noreferrer">
                     <div class="project-image">
-                        <img src="static/images/Voilence detection in videos.png" alt="Violence Detection Project">
+                        <img src="static/images/Voilence detection in videos.webp" 
+                             alt="Project thumbnail - Real-Life Violence Detection in Videos using deep learning" 
+                             loading="lazy" 
+                             width="300" 
+                             height="200">
                     </div>
                     <div class="project-content">
                         <h3>Real-Life Violence Detection in Videos</h3>
@@ -356,12 +409,19 @@
                             <span class="tag">TensorFlow</span>
                             <span class="tag">MobileNetV2</span>
                         </div>
-                        <a href="https://github.com/Pradyumna2098/violence-detection" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <!-- <div class="project-metric">Accuracy: 94.2% on test dataset</div> -->
+                        <div class="project-link-wrapper">
+                            <span class="project-link">View Project <i class="fas fa-external-link-alt"></i></span>
+                        </div>
                     </div>
-                </div>
-                <div class="project-card">
+                </a>
+                <a href="https://github.com/Pradyumna2098/Digital-Deception" target="_blank" class="project-card" rel="noopener noreferrer">
                     <div class="project-image">
-                        <img src="static/images/OSINT.png" alt="OSINT Project">
+                        <img src="static/images/OSINT.webp" 
+                             alt="Project thumbnail - Open Source Intelligence for Digital Deception detection" 
+                             loading="lazy" 
+                             width="300" 
+                             height="200">
                     </div>
                     <div class="project-content">
                         <h3>Open Source Intelligence for Digital Deception</h3>
@@ -372,12 +432,19 @@
                             <span class="tag">InceptionV3</span>
                             <span class="tag">Image Processing</span>
                         </div>
-                        <a href="https://github.com/Pradyumna2098/osint-digital-deception" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <!-- <div class="project-metric">Detection rate: 89.7% for deepfake images</div> -->
+                        <div class="project-link-wrapper">
+                            <span class="project-link">View Project <i class="fas fa-external-link-alt"></i></span>
+                        </div>
                     </div>
-                </div>
-                <div class="project-card">
+                </a>
+                <a href="https://github.com/Pradyumna2098/Xray_Classification" target="_blank" class="project-card" rel="noopener noreferrer">
                     <div class="project-image">
-                        <img src="static/images/Chest Xray.png" alt="Medical Imaging Project">
+                        <img src="static/images/Chest Xray.webp" 
+                             alt="Project thumbnail - Medical Imaging Analysis for chest X-ray diagnosis" 
+                             loading="lazy" 
+                             width="300" 
+                             height="200">
                     </div>
                     <div class="project-content">
                         <h3>Medical Imaging Analysis</h3>
@@ -388,9 +455,12 @@
                             <span class="tag">Medical AI</span>
                             <span class="tag">Deep Learning</span>
                         </div>
-                        <a href="https://github.com/Pradyumna2098/medical-imaging-ai" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <!-- <div class="project-metric">Diagnostic accuracy: 91.5% on validation set</div> -->
+                        <div class="project-link-wrapper">
+                            <span class="project-link">View Project <i class="fas fa-external-link-alt"></i></span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -504,19 +574,27 @@
             </div>
             <div class="blog-grid">
                 <div class="blog-card">
-                    <img src="static/images/blog1.jpg" alt="Blog Post 1">
+                    <img src="static/images/blog1.webp" 
+                         alt="Blog post thumbnail - AI in Healthcare" 
+                         loading="lazy" 
+                         width="300" 
+                         height="200">
                     <div class="blog-content">
                         <h3>The Future of AI in Healthcare</h3>
                         <p>Exploring how artificial intelligence is transforming medical diagnosis and treatment...</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <a href="/blog/ai-in-healthcare.html" class="read-more">Read More</a>
                     </div>
                 </div>
                 <div class="blog-card">
-                    <img src="static/images/blog2.jpg" alt="Blog Post 2">
+                    <img src="static/images/blog2.webp" 
+                         alt="Blog post thumbnail - Deep Learning in Computer Vision" 
+                         loading="lazy" 
+                         width="300" 
+                         height="200">
                     <div class="blog-content">
                         <h3>Deep Learning in Computer Vision</h3>
                         <p>Understanding the latest advancements in computer vision through deep learning...</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <a href="/blog/deep-learning-cv.html" class="read-more">Read More</a>
                     </div>
                 </div>
             </div>
@@ -535,7 +613,12 @@
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <h3>Email</h3>
-                        <p><a href="mailto:pradyumnaswara@gmail.com">pradyumnaswara@gmail.com</a></p>
+                        <div class="email-container">
+                            <a href="mailto:pradyumnaswara@gmail.com" class="email-link">pradyumnaswara@gmail.com</a>
+                            <button class="copy-email-btn" onclick="copyEmail()" aria-label="Copy email to clipboard" title="Copy email">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
@@ -545,16 +628,18 @@
                     <div class="contact-item">
                         <i class="fab fa-linkedin"></i>
                         <h3>LinkedIn</h3>
-                        <p><a href="https://linkedin.com/in/pradyumnasr" target="_blank">linkedin.com/in/pradyumnasr</a></p>
+                        <p><a href="https://linkedin.com/in/pradyumnasr" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile">linkedin.com/in/pradyumnasr</a></p>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-github"></i>
                         <h3>GitHub</h3>
-                        <p><a href="https://github.com/Pradyumna2098" target="_blank">github.com/Pradyumna2098</a></p>
+                        <p><a href="https://github.com/Pradyumna2098" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile">github.com/Pradyumna2098</a></p>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form action="https://formspree.io/f/mnnqnpja" method="POST" id="contactForm">
+                        <!-- Honeypot field -->
+                        <input type="text" name="_honeypot" style="display: none;">
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
@@ -570,12 +655,19 @@
             </div>
         </div>
     </section>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
     <script src="static/js/main.js"></script>
+    <script src="static/js/enhanced-features.js"></script>
     <script src="static/js/timeline-enhanced.js"></script>
-    <script src="static/js/particles-config.js"></script>
-    <script src="static/js/theme.js"></script>
-    <script src="static/js/chatbot.js"></script>
-    <script src="static/js/placeholder-generator.js"></script>
-    <script src="static/js/placeholders.js"></script>
+    <script src="static/js/particles-config.js" defer></script>
+    <script src="static/js/theme.js" defer></script>
+    <script src="static/js/chatbot.js" defer></script>
+    <script src="static/js/placeholder-generator.js" defer></script>
+    <script src="static/js/placeholders.js" defer></script>
 </body>
 </html>
