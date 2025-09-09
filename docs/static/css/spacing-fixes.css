@@ -1,50 +1,65 @@
 /* Additional spacing fixes */
 .section {
-    padding: 6rem 0;  /* Increased padding between sections */
-    margin-bottom: 2rem;
+    padding: 5rem 0;  /* Reduced padding between sections */
+    margin-bottom: 1rem;
 }
 
 .section-header {
-    margin-bottom: 4rem;  /* Increased space after section headers */
+    margin-bottom: 3rem;  /* Reduced space after section headers */
+}
+
+/* Experience section specific fixes */
+.experience-section {
+    padding: 4rem 0;
+    margin-bottom: 3rem; /* Reduced bottom margin */
 }
 
 .timeline-container {
-    padding: 3rem 0;  /* Added padding around timeline */
+    padding: 2rem 0;  /* Reduced padding around timeline */
+    margin-bottom: 1rem; /* Added bottom margin */
 }
 
 .timeline-item {
-    margin-bottom: 3rem;  /* Increased space between timeline items */
+    margin-bottom: 2.5rem;  /* Reduced space between timeline items */
     position: relative;
-    padding-left: 2rem;
 }
 
 .timeline-card {
-    margin-bottom: 2.5rem;  /* Increased spacing between cards */
-    padding: 2rem;
+    margin-bottom: 2rem;  /* Reduced spacing between cards */
+    padding: 1.5rem;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-color: var(--accent-primary);
 }
 
 .card-header {
-    margin-bottom: 1.5rem;  /* Added space after card headers */
+    margin-bottom: 1rem;  /* Reduced space after card headers */
 }
 
 .card-body {
-    padding: 1rem 0;
+    padding: 0.5rem 0;
 }
 
 .card-responsibilities {
-    padding-left: 1.5rem;
-    margin: 1rem 0;
+    padding-left: 1rem;
+    margin: 0.75rem 0;
 }
 
 .card-responsibilities li {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
+/* Blog section - reduced gap */
 .blog-section {
-    padding-top: 6rem;  /* Added extra padding to blog section */
+    padding-top: 3rem;  /* Reduced extra padding to blog section */
+    margin-top: 1rem;
 }
 
 .blog-card {
