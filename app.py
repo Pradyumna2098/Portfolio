@@ -20,11 +20,29 @@ genai.configure(api_key=GEMINI_API_KEY)
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'your-secret-key-change-this-in-production')
 
+# Production configuration
+if os.getenv('RENDER'):
+    # Production settings for Render
+    app.config['ENV'] = 'production'
+    app.config['DEBUG'] = False
+    # Ensure directories exist on Render
+    os.makedirs('static/papers', exist_ok=True)
+    os.makedirs('static/images', exist_ok=True)
+    os.makedirs('static/uploads', exist_ok=True)
+
 # Upload configuration
-UPLOAD_FOLDER = 'docs/static/uploads'
-PAPERS_FOLDER = 'docs/papers'
-IMAGES_FOLDER = 'docs/static/images'
-BLOGS_FOLDER = 'docs/blog'
+if os.getenv('RENDER'):
+    # Production paths on Render
+    UPLOAD_FOLDER = 'static/uploads'
+    PAPERS_FOLDER = 'static/papers'
+    IMAGES_FOLDER = 'static/images'
+    BLOGS_FOLDER = 'static/blog'
+else:
+    # Local development paths
+    UPLOAD_FOLDER = 'docs/static/uploads'
+    PAPERS_FOLDER = 'docs/static/papers'
+    IMAGES_FOLDER = 'docs/static/images'
+    BLOGS_FOLDER = 'docs/blog'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'webp'}
 MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16MB max file size
 
