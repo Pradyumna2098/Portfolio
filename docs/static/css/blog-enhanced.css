@@ -181,6 +181,31 @@
     margin-top: 5px;
 }
 
+/* No Posts Message */
+.no-posts-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(123, 92, 255, 0.05);
+    border: 2px dashed var(--accent-primary);
+    border-radius: var(--radius-lg);
+    margin: 20px 0;
+}
+
+.no-posts-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Hide no-posts message when blog posts exist */
+.blog-grid:not(:has(.blog-card)) .no-posts-message {
+    display: block;
+}
+
+.blog-grid:has(.blog-card) .no-posts-message {
+    display: none;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .paper-actions {
@@ -199,5 +224,9 @@
     
     .blog-stats {
         justify-content: center;
+    }
+    
+    .no-posts-message {
+        padding: 40px 15px;
     }
 }

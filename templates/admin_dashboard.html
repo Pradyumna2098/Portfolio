@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Portfolio</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/blog-enhanced.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-dark">
+    <div class="admin-container">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-left">
+                <h1><i class="fas fa-cog"></i> Portfolio Admin</h1>
+                <span class="user-info">Welcome, {{ session.username }}!</span>
+            </div>
+            <div class="header-right">
+                <a href="/" class="header-btn" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> View Site
+                </a>
+                <a href="/admin/logout" class="header-btn logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </header>
+
+        <!-- Dashboard Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-number" id="papers-count">{{ papers|length }}</div>
+                    <div class="stat-label">Research Papers</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-blog"></i>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-number" id="posts-count">{{ posts|length }}</div>
+                    <div class="stat-label">Blog Posts</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-number">--</div>
+                    <div class="stat-label">Total Views</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <h2><i class="fas fa-cloud-upload-alt"></i> Upload Content</h2>
+            
+            <div class="upload-tabs">
+                <button class="tab-btn active" data-tab="paper">
+                    <i class="fas fa-file-pdf"></i> Upload Paper
+                </button>
+                <button class="tab-btn" data-tab="blog">
+                    <i class="fas fa-edit"></i> Create Blog Post
+                </button>
+                <button class="tab-btn" data-tab="image">
+                    <i class="fas fa-image"></i> Upload Images
+                </button>
+            </div>
+
+            <!-- Paper Upload Tab -->
+            <div class="tab-content active" id="paper-tab">
+                <form id="paperForm" class="upload-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="paper-title">Paper Title</label>
+                            <input type="text" id="paper-title" name="title" required 
+                                   placeholder="Enter paper title">
+                        </div>
+                        <div class="form-group">
+                            <label for="paper-file">PDF File</label>
+                            <input type="file" id="paper-file" name="file" accept=".pdf" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="paper-description">Description</label>
+                        <textarea id="paper-description" name="description" rows="3"
+                                  placeholder="Brief description of the paper"></textarea>
+                    </div>
+                    <button type="submit" class="upload-btn">
+                        <i class="fas fa-upload"></i> Upload Paper
+                    </button>
+                </form>
+            </div>
+
+            <!-- Blog Post Tab -->
+            <div class="tab-content" id="blog-tab">
+                <form id="blogForm" class="upload-form">
+                    <div class="form-group">
+                        <label for="blog-title">Blog Title</label>
+                        <input type="text" id="blog-title" name="title" required 
+                               placeholder="Enter blog post title">
+                    </div>
+                    <div class="form-group">
+                        <label for="blog-description">Description</label>
+                        <textarea id="blog-description" name="description" rows="2" required
+                                  placeholder="Brief description for the blog card"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="blog-image">Featured Image (optional)</label>
+                        <input type="text" id="blog-image" name="image" 
+                               placeholder="e.g., static/images/blog-thumbnail.jpg">
+                    </div>
+                    <div class="form-group">
+                        <label for="blog-content">Content</label>
+                        <textarea id="blog-content" name="content" rows="10" required
+                                  placeholder="Write your blog post content here..."></textarea>
+                    </div>
+                    <button type="submit" class="upload-btn">
+                        <i class="fas fa-save"></i> Create Blog Post
+                    </button>
+                </form>
+            </div>
+
+            <!-- Image Upload Tab -->
+            <div class="tab-content" id="image-tab">
+                <form id="imageForm" class="upload-form">
+                    <div class="form-group">
+                        <label for="image-file">Select Images</label>
+                        <input type="file" id="image-file" name="file" 
+                               accept="image/*" multiple>
+                        <small>Supported formats: JPG, PNG, GIF, WebP</small>
+                    </div>
+                    <button type="submit" class="upload-btn">
+                        <i class="fas fa-upload"></i> Upload Images
+                    </button>
+                </form>
+                <div id="image-previews" class="image-previews"></div>
+            </div>
+        </div>
+
+        <!-- Content Management -->
+        <div class="content-section">
+            <h2><i class="fas fa-list"></i> Manage Content</h2>
+            
+            <div class="content-grid">
+                <!-- Papers Section -->
+                <div class="content-panel">
+                    <h3><i class="fas fa-file-alt"></i> Research Papers</h3>
+                    <div class="content-list" id="papers-list">
+                        {% for paper in papers %}
+                        <div class="content-item" data-id="{{ paper.id }}">
+                            <div class="content-info">
+                                <h4>{{ paper.title }}</h4>
+                                <p>{{ paper.description or 'No description' }}</p>
+                                <small>Uploaded: {{ paper.upload_date[:10] }}</small>
+                            </div>
+                            <div class="content-actions">
+                                <button class="action-btn view" onclick="viewPaper('{{ paper.filename }}')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="action-btn delete" onclick="deleteContent('{{ paper.id }}')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                        {% if not papers %}
+                        <div class="no-content">
+                            <i class="fas fa-file-alt"></i>
+                            <p>No papers uploaded yet</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Blog Posts Section -->
+                <div class="content-panel">
+                    <h3><i class="fas fa-blog"></i> Blog Posts</h3>
+                    <div class="content-list" id="posts-list">
+                        {% for post in posts %}
+                        <div class="content-item" data-id="{{ post.id }}">
+                            <div class="content-info">
+                                <h4>{{ post.title }}</h4>
+                                <p>{{ post.description }}</p>
+                                <small>Created: {{ post.created_date[:10] }}</small>
+                            </div>
+                            <div class="content-actions">
+                                <button class="action-btn view" onclick="viewPost('{{ post.slug }}')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="action-btn delete" onclick="deleteContent('{{ post.id }}')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                        {% if not posts %}
+                        <div class="no-content">
+                            <i class="fas fa-blog"></i>
+                            <p>No blog posts created yet</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Modal -->
+    <div id="progress-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="progress-info">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3 id="progress-title">Uploading...</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-text" id="progress-text">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include the admin dashboard CSS and JS -->
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <script src="../static/js/admin-dashboard.js"></script>
+</body>
+</html>

@@ -574,56 +574,13 @@
                 <h2 class="section-title">Latest Blog Posts</h2>
                 <div class="section-divider"></div>
             </div>
-            <div class="blog-grid">
-                <div class="blog-card featured-paper">
-                    <div class="paper-badge">
-                        <i class="fas fa-file-alt"></i>
-                        <span>Research Paper</span>
-                    </div>
-                    <img src="static/images/technical-paper-thumb.jpg" 
-                         alt="Technical paper thumbnail - Your research work" 
-                         loading="lazy" 
-                         width="300" 
-                         height="200">
-                    <div class="blog-content">
-                        <h3>Upload Your Technical Paper</h3>
-                        <p>Click "Manage Content" below to add your technical paper, research work, and blog posts...</p>
-                        <div class="paper-meta">
-                            <span class="paper-type">Research Paper</span>
-                            <span class="paper-date">2024</span>
-                        </div>
-                        <div class="paper-actions">
-                            <a href="blog/management.html" class="read-more paper-link">
-                                <i class="fas fa-upload"></i> Upload Paper
-                            </a>
-                            <a href="blog/management.html" class="read-more blog-link">
-                                <i class="fas fa-cog"></i> Manage Content
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <img src="static/images/blog1.webp" 
-                         alt="Blog post thumbnail - AI in Healthcare" 
-                         loading="lazy" 
-                         width="300" 
-                         height="200">
-                    <div class="blog-content">
-                        <h3>The Future of AI in Healthcare</h3>
-                        <p>Exploring how artificial intelligence is transforming medical diagnosis and treatment...</p>
-                        <a href="/blog/ai-in-healthcare.html" class="read-more">Read More</a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <img src="static/images/blog2.webp" 
-                         alt="Blog post thumbnail - Deep Learning in Computer Vision" 
-                         loading="lazy" 
-                         width="300" 
-                         height="200">
-                    <div class="blog-content">
-                        <h3>Deep Learning in Computer Vision</h3>
-                        <p>Understanding the latest advancements in computer vision through deep learning...</p>
-                        <a href="/blog/deep-learning-cv.html" class="read-more">Read More</a>
+            <div class="blog-grid" id="blog-container">
+                <!-- Blog posts will be dynamically loaded here -->
+                <div class="no-posts-message" id="no-posts">
+                    <div class="no-posts-content">
+                        <i class="fas fa-blog" style="font-size: 3rem; color: var(--accent-primary); margin-bottom: 20px;"></i>
+                        <h3 style="color: var(--text-primary); margin-bottom: 10px;">No Blog Posts Yet</h3>
+                        <p style="color: var(--text-secondary);">Blog posts and research papers will appear here once published.</p>
                     </div>
                 </div>
             </div>
