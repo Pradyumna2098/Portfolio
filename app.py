@@ -292,5 +292,91 @@ def search():
             "error": str(e)
         }), 500
 
+@app.route('/api/contact', methods=['POST'])
+def handle_contact():
+    try:
+        data = request.get_json()
+        
+        if not data or not all(key in data for key in ['name', 'email', 'message']):
+            return jsonify({
+                "success": False,
+                "error": "Missing required fields"
+            }), 400
+        
+        name = data['name']
+        email = data['email']
+        message = data['message']
+        
+        # Send email notification to your personal email
+        send_contact_email(name, email, message)
+        
+        return jsonify({
+            "success": True,
+            "message": "Contact form submitted successfully"
+        })
+        
+    except Exception as e:
+        print(f"Error in contact form: {str(e)}")
+        return jsonify({
+            "success": False,
+            "error": "Failed to process contact form"
+        }), 500
+
+def send_contact_email(name, email, message):
+    """Send email notification when someone submits the contact form"""
+    try:
+        import smtplib
+        from email.mime.text import MIMEText
+        from email.mime.multipart import MIMEMultipart
+        
+        # Get email credentials from environment variables
+        smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
+        smtp_port = int(os.getenv("SMTP_PORT", "587"))
+        sender_email = os.getenv("SENDER_EMAIL")  # Your email for sending
+        sender_password = os.getenv("SENDER_PASSWORD")  # App password
+        recipient_email = personal_info["email"]  # Your personal email to receive messages
+        
+        if not sender_email or not sender_password:
+            print("Email credentials not configured")
+            return False
+        
+        # Create message
+        msg = MIMEMultipart()
+        msg['From'] = sender_email
+        msg['To'] = recipient_email
+        msg['Subject'] = f"New Contact Form Submission from {name}"
+        
+        # Email body
+        body = f"""
+        You have received a new message from your portfolio website!
+        
+        Name: {name}
+        Email: {email}
+        
+        Message:
+        {message}
+        
+        ---
+        This message was sent from your portfolio contact form.
+        Reply directly to {email} to respond to the sender.
+        """
+        
+        msg.attach(MIMEText(body, 'plain'))
+        
+        # Send email
+        server = smtplib.SMTP(smtp_server, smtp_port)
+        server.starttls()
+        server.login(sender_email, sender_password)
+        text = msg.as_string()
+        server.sendmail(sender_email, recipient_email, text)
+        server.quit()
+        
+        print(f"Contact email sent successfully to {recipient_email}")
+        return True
+        
+    except Exception as e:
+        print(f"Failed to send email: {str(e)}")
+        return False
+
 if __name__ == '__main__':
     app.run(debug=True)

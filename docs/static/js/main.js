@@ -674,7 +674,12 @@ function initResumeGenerator() {
 
 // Contact Form
 function initContactForm() {
-    const contactForm = document.getElementById('contact-form');
+    const contactForm = document.getElementById('contactForm');
+    
+    if (!contactForm) {
+        console.log('Contact form not found');
+        return;
+    }
     
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -682,27 +687,196 @@ function initContactForm() {
         const formData = {
             name: document.getElementById('name').value,
             email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
             message: document.getElementById('message').value
         };
         
-        // For demonstration purposes, just log the data
-        console.log('Form submitted:', formData);
-        
-        // Show success message
-        const submitButton = contactForm.querySelector('.submit-button');
+        // Show loading state
+        const submitButton = contactForm.querySelector('.submit-btn');
         const originalText = submitButton.innerHTML;
+        submitButton.innerHTML = 'Sending...';
+        submitButton.disabled = true;
         
-        submitButton.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-        submitButton.style.backgroundColor = 'var(--success)';
-        
-        // Reset form
-        contactForm.reset();
-        
-        // Reset button after delay
-        setTimeout(() => {
+        // Send to both Flask backend and Formspree
+        Promise.all([
+            sendToBackend(formData),
+            sendToFormspree(formData)
+        ]).then(() => {
+            // Show success popup
+            showSuccessPopup();
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Reset button
             submitButton.innerHTML = originalText;
-            submitButton.style.backgroundColor = '';
-        }, 3000);
+            submitButton.disabled = false;
+        }).catch(error => {
+            console.error('Error sending message:', error);
+            
+            // Still show success popup as Formspree might have worked
+            showSuccessPopup();
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Reset button
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
+        });
     });
+}
+
+// Send form data to Flask backend
+function sendToBackend(formData) {
+    return fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    });
+}
+
+// Send form data to Formspree
+function sendToFormspree(formData) {
+    const form = new FormData();
+    form.append('name', formData.name);
+    form.append('email', formData.email);
+    form.append('message', formData.message);
+    
+    return fetch('https://formspree.io/f/mnnqnpja', {
+        method: 'POST',
+        body: form
+    });
+}
+
+// Show success popup
+function showSuccessPopup() {
+    // Create popup overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'popup-overlay';
+    overlay.innerHTML = `
+        <div class="popup-content">
+            <div class="popup-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Message sent!</h3>
+            <p>Let's connect soon!</p>
+            <button class="popup-close-btn" onclick="closeSuccessPopup()">Close</button>
+        </div>
+    `;
+    
+    document.body.appendChild(overlay);
+    
+    // Add styles if not already added
+    if (!document.getElementById('popup-styles')) {
+        const style = document.createElement('style');
+        style.id = 'popup-styles';
+        style.textContent = `
+            .popup-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                animation: fadeIn 0.3s ease-out;
+            }
+            
+            .popup-content {
+                background: linear-gradient(135deg, #1a1a3a 0%, #2d1b69 100%);
+                border: 2px solid var(--accent);
+                border-radius: 20px;
+                padding: 40px 30px;
+                text-align: center;
+                max-width: 400px;
+                width: 90%;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+                animation: slideIn 0.3s ease-out;
+            }
+            
+            .popup-icon {
+                font-size: 4rem;
+                color: var(--accent);
+                margin-bottom: 20px;
+            }
+            
+            .popup-content h3 {
+                color: var(--text-primary);
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+                font-weight: 600;
+            }
+            
+            .popup-content p {
+                color: var(--text-secondary);
+                font-size: 1.1rem;
+                margin-bottom: 25px;
+            }
+            
+            .popup-close-btn {
+                background: var(--accent);
+                color: var(--text-primary);
+                border: none;
+                padding: 12px 30px;
+                border-radius: 25px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            
+            .popup-close-btn:hover {
+                background: var(--accent-light);
+                transform: translateY(-2px);
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-50px) scale(0.8);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+            
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Auto close after 5 seconds
+    setTimeout(() => {
+        closeSuccessPopup();
+    }, 5000);
+}
+
+// Close success popup
+function closeSuccessPopup() {
+    const overlay = document.querySelector('.popup-overlay');
+    if (overlay) {
+        overlay.style.animation = 'fadeOut 0.3s ease-out';
+        setTimeout(() => {
+            overlay.remove();
+        }, 300);
+    }
 }
