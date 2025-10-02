@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Management - Pradyumna S R</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/blog-enhanced.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-dark">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 40px 20px;">
+        <header style="text-align: center; margin-bottom: 40px;">
+            <h1>Blog & Paper Management</h1>
+            <p>Upload and manage your technical papers, blog posts, and research content</p>
+        </header>
+
+        <!-- Stats Dashboard -->
+        <div class="blog-stats">
+            <div class="stat-card">
+                <div class="stat-number" id="paper-count">1</div>
+                <div class="stat-label">Research Papers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="blog-count">2</div>
+                <div class="stat-label">Blog Posts</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="total-views">0</div>
+                <div class="stat-label">Total Views</div>
+            </div>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="blog-upload-section">
+            <div class="upload-area">
+                <h4><i class="fas fa-cloud-upload-alt"></i> Upload New Content</h4>
+                <p>Add your technical papers, research work, or blog posts to your portfolio</p>
+                
+                <div class="upload-buttons">
+                    <label for="paper-upload" class="upload-btn">
+                        <i class="fas fa-file-pdf"></i>
+                        Upload Paper (PDF)
+                        <input type="file" id="paper-upload" accept=".pdf" style="display: none;">
+                    </label>
+                    
+                    <button class="upload-btn" onclick="openBlogEditor()">
+                        <i class="fas fa-edit"></i>
+                        Write Blog Post
+                    </button>
+                    
+                    <label for="image-upload" class="upload-btn">
+                        <i class="fas fa-image"></i>
+                        Upload Images
+                        <input type="file" id="image-upload" accept="image/*" multiple style="display: none;">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Management -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px;">
+            <!-- Papers Section -->
+            <div>
+                <h3><i class="fas fa-file-alt"></i> Research Papers</h3>
+                <div class="content-list" id="papers-list">
+                    <div class="content-item">
+                        <div class="content-info">
+                            <h4>Your Technical Paper</h4>
+                            <p>Upload your research paper here</p>
+                            <span class="content-status pending">Pending Upload</span>
+                        </div>
+                        <div class="content-actions">
+                            <button class="action-btn edit" onclick="editPaper()">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn delete" onclick="deletePaper()">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Posts Section -->
+            <div>
+                <h3><i class="fas fa-blog"></i> Blog Posts</h3>
+                <div class="content-list" id="blog-list">
+                    <div class="content-item">
+                        <div class="content-info">
+                            <h4>AI in Healthcare</h4>
+                            <p>Exploring AI applications in medical diagnosis</p>
+                            <span class="content-status published">Published</span>
+                        </div>
+                        <div class="content-actions">
+                            <button class="action-btn edit">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn delete">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-item">
+                        <div class="content-info">
+                            <h4>Deep Learning in Computer Vision</h4>
+                            <p>Latest advancements in computer vision</p>
+                            <span class="content-status published">Published</span>
+                        </div>
+                        <div class="content-actions">
+                            <button class="action-btn edit">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn delete">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="../index.html" class="upload-btn">
+                <i class="fas fa-home"></i>
+                Back to Portfolio
+            </a>
+            <button class="upload-btn" onclick="previewChanges()">
+                <i class="fas fa-eye"></i>
+                Preview Changes
+            </button>
+            <button class="upload-btn" onclick="publishChanges()">
+                <i class="fas fa-rocket"></i>
+                Publish to Live Site
+            </button>
+        </div>
+    </div>
+
+    <script src="blog-management.js"></script>
+</body>
+</html>
+
+<style>
+.content-list {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    border: 1px solid var(--card-border);
+}
+
+.content-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.content-info h4 {
+    color: var(--text-primary);
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+}
+
+.content-info p {
+    color: var(--text-secondary);
+    margin: 0 0 8px 0;
+    font-size: 0.9rem;
+}
+
+.content-status {
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.content-status.published {
+    background: var(--success);
+    color: var(--bg-primary);
+}
+
+.content-status.pending {
+    background: var(--warning);
+    color: var(--bg-primary);
+}
+
+.content-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.action-btn {
+    background: var(--accent-primary);
+    border: none;
+    color: var(--text-primary);
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background: var(--accent-secondary);
+    transform: scale(1.1);
+}
+
+.action-btn.delete {
+    background: var(--error);
+}
+
+.action-btn.delete:hover {
+    background: #cc1850;
+}
+
+@media (max-width: 768px) {
+    div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .content-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .content-actions {
+        align-self: flex-end;
+    }
+}
+</style>
