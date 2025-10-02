@@ -682,13 +682,21 @@ function initContactForm() {
     }
     
     contactForm.addEventListener('submit', function(e) {
+        // Prevent the default form submission
         e.preventDefault();
+        e.stopPropagation();
         
         const formData = {
             name: document.getElementById('name').value,
             email: document.getElementById('email').value,
             message: document.getElementById('message').value
         };
+        
+        // Basic validation
+        if (!formData.name || !formData.email || !formData.message) {
+            alert('Please fill in all fields.');
+            return false;
+        }
         
         // Show loading state
         const submitButton = contactForm.querySelector('.submit-btn');
