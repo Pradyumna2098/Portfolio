@@ -10,6 +10,7 @@ A dynamic, AI-driven portfolio that showcases Pradyumna's skills, projects, and 
 ## 📚 Documentation
 
 - **[Quick Setup Guide](SETUP.md)** - Get started in minutes!
+- **[Project Structure](PROJECT_STRUCTURE.md)** - Understand the repository layout
 - **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to this project
 - **[Deployment Guide](DEPLOYMENT_GUIDE.md)** - Deploy to Render or GitHub Pages
 - **[Admin Setup](ADMIN_SETUP.md)** - Configure the admin dashboard
