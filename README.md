@@ -1,10 +1,19 @@
 # Pradyumna's Futuristic Portfolio
 
 [![Deploy to GitHub Pages](https://github.com/Pradyumna2098/Portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/Pradyumna2098/Portfolio/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A dynamic, AI-driven portfolio that showcases Pradyumna's skills, projects, and achievements using the Gemini Free Tier API. The portfolio is modular, easily editable, and visually futuristic, with seamless integration of AI features for interactivity and personalization.
 
 🌐 **[View Live Portfolio](https://pradyumna2098.github.io/Portfolio)**
+
+## 📚 Documentation
+
+- **[Quick Setup Guide](SETUP.md)** - Get started in minutes!
+- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to this project
+- **[Deployment Guide](DEPLOYMENT_GUIDE.md)** - Deploy to Render or GitHub Pages
+- **[Admin Setup](ADMIN_SETUP.md)** - Configure the admin dashboard
+- **[Blog Tutorial](BLOG_TUTORIAL.md)** - Add and manage blog posts
 
 ## Features
 
@@ -32,48 +41,33 @@ A dynamic, AI-driven portfolio that showcases Pradyumna's skills, projects, and 
 - Python 3.8+
 - Gemini API Key
 
-### Installation
+### Quick Installation
 
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   cd portfolio-website
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/Pradyumna2098/Portfolio.git
+cd Portfolio
 
-2. Create a virtual environment:
-   ```
-   python -m venv venv
-   ```
+# Run the setup (Linux/Mac)
+make setup
+source venv/bin/activate
 
-3. Activate the virtual environment:
-   - Windows:
-     ```
-     venv\Scripts\activate
-     ```
-   - macOS/Linux:
-     ```
-     source venv/bin/activate
-     ```
+# OR Manual setup (all platforms)
+python -m venv venv
+# Activate: venv\Scripts\activate (Windows) or source venv/bin/activate (Linux/Mac)
+pip install -r requirements.txt
 
-4. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
+# Configure environment
+cp .env.example .env
+# Edit .env with your credentials
 
-5. Configure your environment variables:
-   - Create a `.env` file in the root directory
-   - Add your Gemini API key:
-     ```
-     GEMINI_API_KEY=your_api_key_here
-     SECRET_KEY=your_secret_key_here
-     ```
+# Run the application
+python app.py
+```
 
-6. Run the application:
-   ```
-   python app.py
-   ```
+Open your browser and navigate to `http://localhost:5000`
 
-7. Open your browser and navigate to `http://localhost:5000`
+📖 **For detailed setup instructions, see [SETUP.md](SETUP.md)**
 
 ## Customization
 
