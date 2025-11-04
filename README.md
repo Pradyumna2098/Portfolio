@@ -1,4 +1,4 @@
-# Pradyumna's Futuristic Portfolio
+# Pradyumna's Portfolio
 
 [![Deploy to GitHub Pages](https://github.com/Pradyumna2098/Portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/Pradyumna2098/Portfolio/actions/workflows/deploy.yml)
 
