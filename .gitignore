@@ -14,7 +14,7 @@ ENV/
 
 # IDE files
 .idea/
-.vscode/
+# .vscode/ - Keep VS Code settings for better developer experience
 *.swp
 *.swo
 
